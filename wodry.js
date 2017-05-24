@@ -114,7 +114,7 @@
         }
       };
       return this.map(function() {
-	      $('.wodry').css({'opacity':'1'});
+	$('.wodry').css({'opacity':'1'});
         var animate, array, back_style, flip, flip_container, front_style, next_style_index, prefixer, style_index;
         flip_container = $(this);
         array = [];
