@@ -114,6 +114,7 @@
         }
       };
       return this.map(function() {
+	      $('.wodry').css({'opacity':'1'});
         var animate, array, back_style, flip, flip_container, front_style, next_style_index, prefixer, style_index;
         flip_container = $(this);
         array = [];
@@ -182,9 +183,7 @@
           }
           return animate(animations[settings.animation], flip_container, front_text, array[back_text_index + 1]);
         };
-	      $('.wodry').css({'opacity':'1'});
-        return setInterval(function() {
-			
+        return setInterval(function() {			
           flip();
           return settings.callback();
         }, settings.delay + settings.animationDuration);
