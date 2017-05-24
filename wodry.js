@@ -182,8 +182,9 @@
           }
           return animate(animations[settings.animation], flip_container, front_text, array[back_text_index + 1]);
         };
+	      $('.wodry').css({'opacity':'1'});
         return setInterval(function() {
-			$('.wodry').css({'opacity':'1'});
+			
           flip();
           return settings.callback();
         }, settings.delay + settings.animationDuration);
