@@ -24,10 +24,3 @@
 .wodry-flipping .back-face {
     position: relative;
 }
-
-  		.hide-this,
-  		.hide-this.wodry-flipping,
-  		.hide-this.wodry-flipping .back-face,
-  		.hide-this.wodry-flipping .front-face{
-          	display: none !important;
-  		}
