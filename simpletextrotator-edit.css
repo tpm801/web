@@ -1,4 +1,5 @@
 .rotating {
+  background-color: blue;
   display: inline-block;
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
