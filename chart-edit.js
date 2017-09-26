@@ -17723,11 +17723,9 @@ module.exports = function(Chart) {
 						}
 
 						if (tickOpts.display) {
-							var tickFontColor = valueOrDefault(tickOpts.fontColor, globalDefaults.defaultFontColor);
+							var tickFontColor = 'red';//valueOrDefault(tickOpts.fontColor, globalDefaults.defaultFontColor);
 							
-							if(Object.prototype.toString.call( tickFontColor ) === '[object Array]'){
-					this.ctx.fillStyle = tickFontColor[index];
-				}
+							
 							
 							ctx.font = tickLabelFont;
 
