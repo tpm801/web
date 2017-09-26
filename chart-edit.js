@@ -17709,9 +17709,7 @@ module.exports = function(Chart) {
 				helpers.each(me.ticks, function(label, index) {
 				
 				// Tim -- added to allow changing colors of ticks.
-				if(Object.prototype.toString.call( tickFontColor ) === '[object Array]'){
-					this.ctx.fillStyle = tickFontColor[index];
-				}
+				
 				
 				
 				
@@ -17726,6 +17724,11 @@ module.exports = function(Chart) {
 
 						if (tickOpts.display) {
 							var tickFontColor = valueOrDefault(tickOpts.fontColor, globalDefaults.defaultFontColor);
+							
+							if(Object.prototype.toString.call( tickFontColor ) === '[object Array]'){
+					this.ctx.fillStyle = tickFontColor[index];
+				}
+							
 							ctx.font = tickLabelFont;
 
 							ctx.save();
