@@ -17735,7 +17735,7 @@ module.exports = function(Chart) {
 
 							if (tickOpts.showLabelBackdrop) {
 								var labelWidth = ctx.measureText(label).width;
-								ctx.fillStyle = tickOpts.backdropColor;
+								ctx.fillStyle = 'blue';//tickOpts.backdropColor;
 								ctx.fillRect(
 									-labelWidth / 2 - tickOpts.backdropPaddingX,
 									-yCenterOffset - tickFontSize / 2 - tickOpts.backdropPaddingY,
@@ -17746,7 +17746,7 @@ module.exports = function(Chart) {
 
 							ctx.textAlign = 'center';
 							ctx.textBaseline = 'middle';
-							ctx.fillStyle = '#ffffff';
+							ctx.fillStyle = 'red';
 							ctx.fillText(label, 0, -yCenterOffset);
 							ctx.restore();
 						}
