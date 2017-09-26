@@ -12141,7 +12141,7 @@ module.exports = function(Chart) {
 					context.translate(itemToDraw.labelX, itemToDraw.labelY);
 					context.rotate(itemToDraw.rotation);
 					context.font = itemToDraw.major ? majorTickFont.font : tickFont.font;
-					
+					alert(itemsToDraw.label);
 					if(itemsToDraw.label === 'Now') {
 						context.fillStyle = '#0F283E';//itemToDraw.major ? majorTickFontColor : tickFontColor;
 					}
