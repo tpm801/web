@@ -12108,6 +12108,7 @@ module.exports = function(Chart) {
 			});
 
 			// Draw all of the tick labels, tick marks, and grid lines at the correct places
+			var count = 0;
 			helpers.each(itemsToDraw, function(itemToDraw) {
 				if (gridLines.display) {
 					context.save();
@@ -12133,14 +12134,23 @@ module.exports = function(Chart) {
 					context.stroke();
 					context.restore();
 				}
-
+				
 				if (optionTicks.display) {
 					// Make sure we draw text in the correct color and font
 					context.save();
 					context.translate(itemToDraw.labelX, itemToDraw.labelY);
 					context.rotate(itemToDraw.rotation);
 					context.font = itemToDraw.major ? majorTickFont.font : tickFont.font;
-					context.fillStyle = 'black';//itemToDraw.major ? majorTickFontColor : tickFontColor;
+					
+					if(count++ < 1) {
+						context.fillStyle = '#0F283E';//itemToDraw.major ? majorTickFontColor : tickFontColor;
+					}
+					else {
+						context.fillStyle = '#91B961';//itemToDraw.major ? majorTickFontColor : tickFontColor;
+					}
+					
+					
+					//context.fillStyle = '';//itemToDraw.major ? majorTickFontColor : tickFontColor;
 					context.textBaseline = itemToDraw.textBaseline;
 					context.textAlign = itemToDraw.textAlign;
 
@@ -17707,12 +17717,6 @@ module.exports = function(Chart) {
 				var tickLabelFont = helpers.fontString(tickFontSize, tickFontStyle, tickFontFamily);
 
 				helpers.each(me.ticks, function(label, index) {
-				
-				// Tim -- added to allow changing colors of ticks.
-				
-				
-				
-				
 					// Don't draw a centre value (if it is minimum)
 					if (index > 0 || tickOpts.reverse) {
 						var yCenterOffset = me.getDistanceFromCenterForValue(me.ticksAsNumbers[index]);
@@ -17723,10 +17727,7 @@ module.exports = function(Chart) {
 						}
 
 						if (tickOpts.display) {
-							var tickFontColor;//valueOrDefault(tickOpts.fontColor, globalDefaults.defaultFontColor);
-							
-							
-							
+							var tickFontColor = valueOrDefault(tickOpts.fontColor, globalDefaults.defaultFontColor);
 							ctx.font = tickLabelFont;
 
 							ctx.save();
@@ -17735,7 +17736,7 @@ module.exports = function(Chart) {
 
 							if (tickOpts.showLabelBackdrop) {
 								var labelWidth = ctx.measureText(label).width;
-								ctx.fillStyle = 'blue';//tickOpts.backdropColor;
+								ctx.fillStyle = tickOpts.backdropColor;
 								ctx.fillRect(
 									-labelWidth / 2 - tickOpts.backdropPaddingX,
 									-yCenterOffset - tickFontSize / 2 - tickOpts.backdropPaddingY,
@@ -17746,7 +17747,7 @@ module.exports = function(Chart) {
 
 							ctx.textAlign = 'center';
 							ctx.textBaseline = 'middle';
-							ctx.fillStyle = 'red';
+							ctx.fillStyle = tickFontColor;
 							ctx.fillText(label, 0, -yCenterOffset);
 							ctx.restore();
 						}
