@@ -12108,7 +12108,7 @@ module.exports = function(Chart) {
 			});
 
 			// Draw all of the tick labels, tick marks, and grid lines at the correct places
-			var count = 0;
+			
 			helpers.each(itemsToDraw, function(itemToDraw) {
 				if (gridLines.display) {
 					context.save();
@@ -12142,11 +12142,14 @@ module.exports = function(Chart) {
 					context.rotate(itemToDraw.rotation);
 					context.font = itemToDraw.major ? majorTickFont.font : tickFont.font;
 					
-					if(count++ < 1) {
+					if(itemsToDraw.label === 'Now') {
 						context.fillStyle = '#0F283E';//itemToDraw.major ? majorTickFontColor : tickFontColor;
 					}
-					else {
+					else if(itemsToDraw.label === 'After') {
 						context.fillStyle = '#91B961';//itemToDraw.major ? majorTickFontColor : tickFontColor;
+					}
+					else {
+						context.fillStyle = itemToDraw.major ? majorTickFontColor : tickFontColor;
 					}
 					
 					
