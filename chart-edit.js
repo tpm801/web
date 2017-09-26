@@ -17723,7 +17723,7 @@ module.exports = function(Chart) {
 						}
 
 						if (tickOpts.display) {
-							var tickFontColor = 'red';//valueOrDefault(tickOpts.fontColor, globalDefaults.defaultFontColor);
+							var tickFontColor;//valueOrDefault(tickOpts.fontColor, globalDefaults.defaultFontColor);
 							
 							
 							
@@ -17746,7 +17746,7 @@ module.exports = function(Chart) {
 
 							ctx.textAlign = 'center';
 							ctx.textBaseline = 'middle';
-							ctx.fillStyle = tickFontColor;
+							ctx.fillStyle = '#ffffff';
 							ctx.fillText(label, 0, -yCenterOffset);
 							ctx.restore();
 						}
